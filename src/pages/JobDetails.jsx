@@ -67,10 +67,7 @@ export const JobDetails = () => {
           <>
 
             {jobDetails && <div>
-              <div className='flex pt-5 md:px-12 pl-4 md:gap-10 gap-5'>
-                {/* <div className=''> */}
-                  {/* <img src={jobDetails && jobDetails.companyLogo.url} className='md:h-32 h-24 w-24 md:w-32' alt="" /> */}
-                {/* </div> */}
+              <div className='flex pt-5 md:px-12 pl-4 md:gap-10 gap-5 font-normal '>
                 <div className='flex  items-center w-[6rem]'>
                   <img src={jobDetails && jobDetails.companyLogo.url} className='' alt="" />
                 </div>
@@ -79,7 +76,7 @@ export const JobDetails = () => {
                   <p className='text-lg flex gap-1 items-center  md:text-2xl'><BiBuildings />{jobDetails.companyName}</p>
                   <p className='text-lg flex gap-2 items-center  md:text-2xl'><BsPersonWorkspace size={20} />{jobDetails.employmentType}</p>
                   <p className='text-lg flex gap-1.5 items-center  md:text-2xl'><HiStatusOnline size={20} /><span className={` ${jobDetails.status === "active" ? "text-green-700" : "text-red-500"} 
-                  w-20 text-center rounded-lg font-semibold`} >
+                  md:w-20 text-center rounded-lg md:pb-2 pb-1 font-semibold`} >
                     {jobDetails.status}
                   </span></p>
                   
