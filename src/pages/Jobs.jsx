@@ -22,6 +22,7 @@ export const Jobs = () => {
   const [company, setCompany] = useState("");
   const [search, setSearch] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(1);
 
 
   const data = ["Technology", "Marketing", "Finance", "Sales", "Legal"]
@@ -85,18 +86,19 @@ export const Jobs = () => {
   }
 
   const leftFilter = () => {
-    console.log(category, salary)
-
 
     const leftFilArr = allJobs.filter((item) => (
       item.category.toLowerCase() === category.toLowerCase() && parseInt(item.salary) >= salary
     ))
     setJobs(leftFilArr)
   }
+
+
   const removeLeftFilter = () => {
     setCategory("")
     setSalary(0)
     setJobs(allJobs)
+    setCurrentPage(1)
   }
 
   const rightFilter = () => {
@@ -109,6 +111,7 @@ export const Jobs = () => {
   const removeRightFilter = () => {
     setCompany("")
     setJobs(allJobs)
+    setCurrentPage(1)
   }
 
 
@@ -119,7 +122,6 @@ export const Jobs = () => {
   // Pagination 
 
   const itemsPerPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
 
   const totalPageCount = Math.ceil(jobs.length / itemsPerPage);
 
@@ -259,7 +261,7 @@ export const Jobs = () => {
 
                  
 
-                  <div className={`${jobs.length === 0 ? "hidden" : "flex"} justify-center pt-20 items-center`}>
+                  <div className={` justify-center pt-20 items-center`}>
                     <div className='flex  flex-col'>
 
 
